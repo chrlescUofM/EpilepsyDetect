@@ -23,11 +23,11 @@ EpilepsyDetect/ 		-- Containing directory.
 
 <ul style="list-style: none;">
 	<li>EpilepsyDetect/</li>
-	<ul>
+	<ul style="list-style: none;">
 		<li>README.md</li>
 		<li>results.pdf</li>
 		<li>[basicFeatures/](/basicFeatures/)</li>
-		<ul>
+		<ul style="list-style: none;">
 			<li>crossValidation.m</li>
 			<li>featureExtract.m</li>
 		</ul>
@@ -38,8 +38,11 @@ EpilepsyDetect/ 		-- Containing directory.
 
 ---
 
-* EpilepsyDetect/
-  * README.md   		
+EpilepsyDetect/
+  README.md   		
+  [results.pdf](/results.pdf)
+---
+
   * [results.pdf](/results.pdf) 		
   * [basicFeatures/](/basicFeatures/)		
     * crossValidation.m 		
