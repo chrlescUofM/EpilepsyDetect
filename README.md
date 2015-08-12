@@ -38,21 +38,21 @@ EpilepsyDetect/ 		-- Containing directory.
 
 ---
 
- EpilepsyDetect/	
-	README.md   		
-	results.pdf 		
-	[basicFeatures/](/basicFeatures/)		
-		crossValidation.m 		
-		featureExtract.m 		
-		featureExtractHelper.m  
-		featureExtractValidate.m
-		localClassifier.m
-		makePlot.m
-	LaTeX/
-	STLMax/
-		lyapunov.m
-		rosensteinLmax.m
-		shortTimeLmax.m
-		psr_deneme.m
+* EpilepsyDetect/
+  * README.md   		
+  * [results.pdf](/results.pdf) 		
+  * [basicFeatures/](/basicFeatures/)		
+    * crossValidation.m 		
+	* featureExtract.m 		
+	* featureExtractHelper.m  
+	* featureExtractValidate.m
+	* localClassifier.m
+	* makePlot.m
+  * LaTeX/
+  * STLMax/
+	* lyapunov.m
+	* rosensteinLmax.m
+	* shortTimeLmax.m
+	* psr_deneme.m
 
 
