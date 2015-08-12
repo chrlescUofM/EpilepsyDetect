@@ -1,6 +1,5 @@
 # EpilepsyDetect
 My work for the Kaggle Seizure Prediction challenge (https://www.kaggle.com/c/seizure-prediction).
----
 
 ## Repository Structure
 EpilepsyDetect/ 		-- Containing directory.
@@ -22,7 +21,24 @@ EpilepsyDetect/ 		-- Containing directory.
 
 ---
 
-EpilepsyDetect/ 		
+<ul>
+	<li>EpilepsyDetect/</li>
+	<ul>
+		<li>README.md</li>
+		<li>results.pdf</li>
+		<li>basicFeatures/</li>
+		<ul>
+			<li>crossValidation.m</li>
+			<li>featureExtract.m</li>
+		</ul>
+		<li>LaTeX/</li>
+		<li>STLMax/</li>
+	</ul>
+</ul>
+
+---
+
+ EpilepsyDetect/	
 	README.md   		
 	results.pdf 		
 	[basicFeatures/](/basicFeatures/)		
