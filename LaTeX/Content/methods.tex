@@ -1,0 +1,30 @@
+In this section we discuss the three different approaches that we took to the problem of predicting seizure-onset.  Section \ref{subsec:a} discusses variance and correlation based methods, section \ref{subsec:b} introduces maximum cross correlation, and section \ref{subsec:c} outlines the development and incorporation of the short term Lyapunov exponent maxima.
+
+\subsection{Variance and Correlation} \label{subsec:a}
+For each ten minute segment of labeled training data we computed the inter-channel variance for each of the $n$ channels separately.  We then computed the cross channel correlation matrix, from which we extracted the $\frac{n(n-1)}{2}$ meaningful values.  This left us with $n + \frac{n(n-1)}{2}$ values to use as features.  We created a support vector machine (SVM) trained on these simple features and scaled the model parameters to fit the posterior probability distribution of the training data.  The result was a prediction model that generated scaled predictions from zero to one instead of the binary classification that SVM's normally produce.  Such a scaled prediction was deemed necessary to improve our score on the aucROC performance metric the results would be judged upon.
+
+\subsection{Maximum Cross Correlation} \label{subsec:b}
+Here we attempt to improve our performance by incorporating a model that more accurately accounts for the physical situation.  The intercranial electrodes are spatially separated around the subjects brain.  The propagation of electric currents through the cortex dictates that there will be some degree of variation in the time delay of signal acquisition of a single originator.  As such, our classification algorithm should rely on the cross channel correlation that occurs at the proper intra-channel delay.  This can be found by calculating the maximum cross correlation within a small time window around the actual time of signal detection.  Our algorithm checks for the maximal cross correlation within $\pm0.5$ seconds at a resolution of $0.1$ seconds.  This procedure generates $\frac{n(n-1)}{2}$ features that replace the correlation features from section \ref{subsec:a}, but the rest of the pipeline remains unchanged.
+
+\subsection{Short Term Lyapunov Exponent Maximum ($STL_{max}$)} \label{subsec:c}
+The brain is a complex non-linear dynamical system, and as such any attempt at accurately predicting its behavior must attempt to model some form of this non-linearity.  In \cite{iasemidis01} the authors demonstrate that the intercranial EEG signals recorded from different cortical sites progressively converge as the brain transitions from the interictal state to the ictal state. In \cite{iasemidis05} the authors leverage this convergence by measuring the value of $STL_{max}$ as a characteristic of the chaotic behavior of an individual EEG channel.
+
+In our procedure we compute the value of $STL_{max}$ by first separating our data into ten second epochs.  Then, for each epoch we calculate the value of $L_{max}$ using the following iterative algorithm described in \cite{rosenstein93}: \\ \\
+First we create the time-delayed embedded time series $\boldsymbol{X}$:
+\begin{align}
+\boldsymbol{X} &= [\boldsymbol{X_1} \boldsymbol{X_2} \ldots \boldsymbol{X_M}]^T \\
+\boldsymbol{X_i} &= [x_i x_{i+J} \ldots x_{i+(m-1)J}]
+\end{align}
+Where in these equations $J$ is the reconstruction delay, or the lag, and $m$ is the embedding dimension of the state space.  Both of which can be estimated efficiently from the input data.  $m$ is estimated in accordance with Taken's theorem and satisfies $m > 2n$.  $J$ can be found where the autocorrelation drops to $1-\frac{1}{e}$ of its initial value.  Finally, $M = n-(m-1)J$.  The next step involves calculating the nearest neighbor of the initial point.
+\begin{align}
+d_j(0) &= \min_{\boldsymbol{X_{j'}}}||\boldsymbol{X_j}-\boldsymbol{X_{j'}}|| \\
+|j-j'| &> \text{mean period} \label{eq:mean}
+\end{align}
+We impose the constraint in (\ref{eq:mean}) such that the temporal separation between nearest neighbors is greater than the mean period.  This constraint forces $j$ and $j'$ to lie on divergent trajectories.  The mean period can be found as the reciprocal of the mean frequency of the epochs power spectrum.  Under these conditions the maximum Lyapunov exponent can be found using a least-squares-fit to the linear section of the average over all $d_j(i)$'s:
+\begin{align}
+y(i) &= \frac{1}{\Delta t}\langle \ln d_j(i) \rangle
+\end{align}
+\\
+Once we compute $L_{max}$ for each epoch, we have short term Lyapunov exponent maxima ($STL_{max}$).  Figure \ref{fig:STLMax} shows the values of $STL_{max}$ over an hour of continuous time EEG.  If we then measure the difference between $STL_{max}$ values of two or more channels we obtain a measure of the convergence of chaotic behavior within the cortex \cite{mirowski08}.  
+
+In \cite{iasemidis05} after the determination of $STL_{max}$ values for all of the observed channels the authors compute a T-score index.  The T-score index is then used to predict the probability that some critical grouping of channels will converge at some future point in time.  When the computed value of the T-score index drops below a threshold value an impending seizure warning is generated.  In this regard, our usage of $STL_{max}$ differs from the original algorithm.  Instead of calculating a single continuous time T-score index for an entire grouping of channels we compute an averaged T-score index for each possible pairing of channels during a ten minute segment of data.  Instead of using the T-score index as the single predictor of preictal or interictal we include each pairwise T-score as an additional feature in our feature vector from section \ref{subsec:b}.  We then use the same SVM strategy as section \ref{subsec:a} to create our classifier.

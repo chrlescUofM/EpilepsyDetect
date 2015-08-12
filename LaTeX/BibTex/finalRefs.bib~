@@ -1,0 +1,90 @@
+@article{iasemidis05, 
+title = "Long-term prospective on-line real-time seizure prediction ", 
+journal = "Clinical Neurophysiology ", 
+volume = "116", 
+number = "3", 
+pages = "532 - 544", 
+year = "2005", 
+author = "L.D. Iasemidis and D.-S. Shiau and P.M. Pardalos and W. Chaovalitwongse and K. Narayanan and A. Prasad and K. Tsakalis and P.R. Carney and J.C. Sackellares" 
+}
+
+@article{iasemidis01,
+  title={Quadratic binary programming and dynamical system approach to determine the predictability of epileptic seizures},
+  author={Iasemidis, Leonidas D and Pardalos, P and Sackellares, J Chris and Shiau, D-S},
+  journal={Journal of Combinatorial Optimization},
+  volume={5},
+  number={1},
+  pages={9--26},
+  year={2001},
+  publisher={Springer}
+}
+
+@INPROCEEDINGS{Mirowski08,  
+author={Mirowski, P.W. and Yann LeCun and Madhavan, D. and Kuzniecky, R.},  
+booktitle={Machine Learning for Signal Processing, 2008. MLSP 2008. IEEE Workshop on},  
+title={Comparing SVM and convolutional networks for epileptic seizure prediction from intracranial EEG},  
+year={2008},  
+month={Oct},  
+pages={244-249} 
+} 
+
+@article{Maiwald04, 
+title = "Comparison of three nonlinear seizure prediction methods by means of the seizure prediction characteristic ", 
+journal = "Physica D: Nonlinear Phenomena ", 
+volume = "194", 
+number = "3�4", 
+pages = "357 - 368", 
+year = "2004", 
+author = "Thomas Maiwald and Matthias Winterhalder and Richard Aschenbrenner-Scheibe and Henning U. Voss and Andreas Schulze-Bonhage and Jens Timmer" 
+} 
+
+@article{Wulsin11, 
+  title={Modeling electroencephalography waveforms with semi-supervised deep belief nets: fast classification and anomaly measurement}, 
+  author={Wulsin, DF and Gupta, JR and Mani, R and Blanco, JA and Litt, B}, 
+  journal={Journal of neural engineering}, 
+  volume={8}, 
+  number={3}, 
+  pages={036015}, 
+  year={2011}, 
+  publisher={IOP Publishing} 
+} 
+
+@article{iasemidis91, 
+  title={The evolution with time of the spatial distribution of the largest Lyapunov exponent on the human epileptic cortex}, 
+  author={Iasemidis, Leonidas D and Sackellares, J CHRIS}, 
+  journal={Measuring chaos in the human brain}, 
+  pages={49--82}, 
+  year={1991}, 
+  publisher={Citeseer} 
+} 
+
+@article{Rosenstein93, 
+title = "A practical method for calculating largest Lyapunov exponents from small data sets ", 
+journal = "Physica D: Nonlinear Phenomena ", 
+volume = "65", 
+number = "1�2", 
+pages = "117 - 134", 
+year = "1993", 
+author = "Michael T. Rosenstein and James J. Collins and Carlo J. De Luca" 
+}
+
+@article{kantz94,
+title = "A robust method to estimate the maximal Lyapunov exponent of a time series ",
+journal = "Physics Letters A ",
+volume = "185",
+number = "1",
+pages = "77 - 87",
+year = "1994",
+author = "Holger Kantz"
+}
+
+@article{fisher2000impact,
+  title={The impact of epilepsy from the patient’s perspective I. Descriptions and subjective perceptions},
+  author={Fisher, Robert S and Vickrey, Barbara G and Gibson, Patricia and Hermann, Bruce and Penovich, Patricia and Scherer, Ann and Walker, Steven},
+  journal={Epilepsy research},
+  volume={41},
+  number={1},
+  pages={39--51},
+  year={2000},
+  publisher={Elsevier}
+}

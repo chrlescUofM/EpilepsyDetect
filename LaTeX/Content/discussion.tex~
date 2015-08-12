@@ -1,0 +1,12 @@
+\begin{figure}[!t]
+  \centering{
+    \subfloat[Interictal]{
+      \includegraphics[width=0.48\textwidth]{interictal}%
+      \label{fig:accl}}
+    \hfil
+    \subfloat[Preictal]{
+      \includegraphics[width=0.48\textwidth]{preictal}%
+      \label{fig:vel}}
+  }
+  \caption{STLmax For two different 1hr segments of EEG} \label{fig:av}
+\end{figure}
