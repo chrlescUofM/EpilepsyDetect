@@ -21,12 +21,12 @@ EpilepsyDetect/ 		-- Containing directory.
 
 ---
 
-<ul>
+<ul style="list-style: none;">
 	<li>EpilepsyDetect/</li>
 	<ul>
 		<li>README.md</li>
 		<li>results.pdf</li>
-		<li>basicFeatures/</li>
+		<li>[basicFeatures/](/basicFeatures/)</li>
 		<ul>
 			<li>crossValidation.m</li>
 			<li>featureExtract.m</li>
