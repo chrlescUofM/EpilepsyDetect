@@ -24,9 +24,9 @@ EpilepsyDetect/ 		-- Containing directory.
 
 ---
 
-* EpilepsyDetect/
-  * README.md   		
-  * [results.pdf](/results.pdf) 		
+* EpilepsyDetect/ 	-- Containing directory.
+  * README.md 	-- This file.
+  * [results.pdf](/results.pdf) 	-- A report containing an overview of the methods used and the results achieved.	
   * [basicFeatures/](/basicFeatures/)		
     * [crossValidation.m](/basicFeatures/crossValidation.m) 		
 	* [featureExtract.m](/basicFeatures/featureExtract.m)
